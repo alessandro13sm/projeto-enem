@@ -85,7 +85,7 @@ class Enem:
         self.entry_imagem_url.set_text(imagem_url or "")
 
     def on_btn_inserir(self, componente=None, dados=None):
-        """CREATE: lê os campos da tela e insere uma nova questão."""
+        """CREATE"""
         try:
             dados = self.obter_dados_formulario()
             inserir_questao(*dados)
@@ -96,7 +96,7 @@ class Enem:
             self.lbl_status.set_text(f"Erro ao inserir: {erro}")
 
     def on_btn_ler_aleatoria(self, componente=None, dados=None):
-        """READ: sorteia uma questão aleatória e exibe enunciado e alternativas."""
+        """READ aleatório"""
         try:
             questao = sortear_questao()
             if not questao:
@@ -137,7 +137,6 @@ class Enem:
             self.lbl_status.set_text(f"Erro ao ler questão: {erro}")
 
     def on_btn_carregar_id(self, componente=None, dados=None):
-        """Auxiliar para UPDATE: carrega os dados do ID digitado no formulário."""
         id_texto = self.entry_id.get_text().strip()
         if not id_texto.isdigit():
             self.lbl_status.set_text("Informe um ID numérico válido para carregar.")
@@ -152,7 +151,7 @@ class Enem:
         self.lbl_status.set_text(f"Dados da questão ID {id_texto} carregados.")
 
     def on_btn_atualizar(self, componente=None, d=None):
-        """UPDATE: atualiza a questão do ID informado com os valores do formulário."""
+        """UPDATE"""
         id_texto = self.entry_id.get_text().strip()
         if not id_texto.isdigit():
             self.lbl_status.set_text("Informe um ID numérico válido para atualizar.")
@@ -171,7 +170,7 @@ class Enem:
             self.lbl_status.set_text(f"Erro ao atualizar: {erro}")
 
     def on_btn_deletar(self, componente=None, dados=None):
-        """DELETE: remove a questão correspondente ao ID informado."""
+        """DELETE"""
         id_texto = self.entry_id.get_text().strip()
         if not id_texto.isdigit():
             self.lbl_status.set_text("Informe um ID numérico válido para deletar.")
